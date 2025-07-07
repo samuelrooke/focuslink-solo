@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A feature-rich Pomodoro timer with tasks, stats, themes, and ambient sounds to boost your productivity." />
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link id="favicon" rel="icon" href="images/favicon-focus.png" type="image/png">
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1>Pomodoro Timer</h1>
+            <div class="theme-selector">
+                <label for="theme-select" class="visually-hidden">Select Theme</label>
+                <select id="theme-select" aria-label="Select color theme">
+                    <option value="default">Default</option>
+                    <option value="forest">Forest</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="matrix">Matrix</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="timer-section card">
+            <p id="session-info" class="session-info">Ready to Focus</p>
+            <div id="timer" class="timer-display" aria-live="off">25:00</div>
+            <svg class="progress-circle" width="200" height="200" viewBox="0 0 100 100">
+                <circle class="progress-background" cx="50" cy="50" r="45" />
+                <circle id="progress-foreground" class="progress-foreground" cx="50" cy="50" r="45" />
+            </svg>
+            <div class="controls">
+                <button id="start-btn" aria-label="Start timer">Start</button>
+                <button id="pause-btn" aria-label="Pause timer">Pause</button>
+                <button id="skip-btn" aria-label="Skip to next session">Skip</button>
+            </div>
+        </section>
+
+        <section class="tasks-section card" aria-labelledby="tasks-heading">
+            <h2 id="tasks-heading">Tasks</h2>
+            <p id="active-task-display">No active task</p>
+            <div class="task-input-group">
+                <input type="text" id="new-task-input" placeholder="Add a new task" aria-label="New task input" />
+                <button id="add-task-btn" aria-label="Add task">Add</button>
+            </div>
+            <ul id="task-list" role="list"></ul>
+        </section>
+        
+        <section class="productivity-section card" aria-labelledby="productivity-heading">
+            <h2 id="productivity-heading">Productivity</h2>
+            <div class="daily-goal">
+                <label for="daily-goal-input">Daily Goal:</label>
+                <input id="daily-goal-input" type="number" value="8" min="1" max="20" />
+                <p id="daily-goal-progress">Progress: 0 / 8</p>
+            </div>
+             <div class="stats-chart" id="stats-chart-container">
+                <h3>Last 7 Days</h3>
+                <div class="chart-wrapper" id="chart"></div>
+            </div>
+        </section>
+
+        <section class="settings-section card" aria-labelledby="settings-heading">
+            <h2 id="settings-heading">Settings & Sounds</h2>
+             <div class="settings-grid">
+                <label for="focus-input">Focus (min):</label>
+                <input id="focus-input" type="number" value="25" min="1" />
+                <label for="break-input">Break (min):</label>
+                <input id="break-input" type="number" value="5" min="1" />
+                <label for="long-break-input">Long Break (min):</label>
+                <input id="long-break-input" type="number" value="15" min="1" />
+                <label for="long-break-interval">Sessions for Long Break:</label>
+                <input id="long-break-interval" type="number" value="4" min="1" />
+            </div>
+            <div class="sound-settings">
+                 <div class="notification-sound">
+                    <label for="sound-select">Alert Sound:</label>
+                    <select id="sound-select">
+                        <option value="ding">Ding</option>
+                        <option value="bell">Bell</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+                <div class="ambient-sound">
+                    <label for="ambient-select">Ambient Sound:</label>
+                    <select id="ambient-select">
+                        <option value="none">None</option>
+                        <option value="rain">Rain</option>
+                        <option value="cafe">Coffee Shop</option>
+                    </select>
+                    <button id="ambient-toggle-btn">Play</button>
+                </div>
+            </div>
+        </section>
+         <footer class="footer">
+            <p>Shortcuts: <strong>Space</strong> (Start/Pause), <strong>Alt+S</strong> (Skip), <strong>Alt+R</strong> (Reset)</p>
+        </footer>
+    </main>
+
+    <audio id="sound-ding" src="sounds/ding.mp3" preload="auto"></audio>
+    <audio id="sound-bell" src="sounds/bell.mp3" preload="auto"></audio>
+    <audio id="ambient-rain" src="sounds/rain.mp3" preload="auto" loop></audio>
+    <audio id="ambient-cafe" src="sounds/cafe.mp3" preload="auto" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
