@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         theme: 'default',
         notificationSound: 'ding',
         ambientSound: { id: 'none', isPlaying: false, element: null },
+    autoStartNext: true,
         tasks: [],
         activeTaskId: null,
         stats: {}, // { 'YYYY-MM-DD': count }
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         soundSelect: document.getElementById('sound-select'),
         ambientSelect: document.getElementById('ambient-select'),
         ambientToggleBtn: document.getElementById('ambient-toggle-btn'),
+    autoStartCheckbox: document.getElementById('auto-start-checkbox'),
         favicon: document.getElementById('favicon'),
         inputs: {
             focus: document.getElementById('focus-input'),
@@ -66,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
             playSound(state.notificationSound);
             showNotification(state.isFocus ? "Break time!" : "Time to focus!", "Your session has ended.");
             switchSession();
+            // Automatically start the next session if the user enabled auto-start
+            if(state.autoStartNext) startTimer();
             saveState();
         }
     };
@@ -114,7 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
         dom.timer.textContent = `${minutes}:${seconds}`;
         document.title = `${minutes}:${seconds} - ${state.isFocus ? "Focus" : "Break"}`;
         
-        const totalDuration = (state.isFocus ? state.timers.focus : state.timers.break) * 60;
+        // Use the correct total duration depending on session type (short/long break)
+        const totalDuration = state.isFocus
+            ? state.timers.focus * 60
+            : ((state.sessionCount > 0 && state.sessionCount % state.longBreakInterval === 0)
+                ? state.timers.longBreak * 60
+                : state.timers.break * 60);
         const progressPercent = (totalDuration - state.timeLeft) / totalDuration;
         const circumference = 2 * Math.PI * 45;
         dom.progress.style.strokeDashoffset = circumference * (1 - progressPercent);
@@ -136,6 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
         state.timers.longBreak = parseInt(dom.inputs.longBreak.value);
         state.longBreakInterval = parseInt(dom.inputs.interval.value);
         state.dailyGoal = parseInt(dom.dailyGoalInput.value);
+        // sync auto-start checkbox if present
+        if(dom.autoStartCheckbox) state.autoStartNext = dom.autoStartCheckbox.checked;
         if(!state.isRunning) resetTimer();
         saveState();
         updateDisplay();
@@ -279,6 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dom.themeSelect.value = state.theme;
         dom.soundSelect.value = state.notificationSound;
         dom.ambientSelect.value = state.ambientSound.id;
+    if(dom.autoStartCheckbox) dom.autoStartCheckbox.checked = state.autoStartNext;
 
         // Apply loaded settings
         setTheme(state.theme);
@@ -307,6 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dom.themeSelect.addEventListener('change', (e) => setTheme(e.target.value));
         dom.soundSelect.addEventListener('change', (e) => { state.notificationSound = e.target.value; saveState(); });
         dom.ambientToggleBtn.addEventListener('click', toggleAmbientSound);
+        if(dom.autoStartCheckbox) dom.autoStartCheckbox.addEventListener('change', (e) => { state.autoStartNext = e.target.checked; saveState(); });
         dom.ambientSelect.addEventListener('change', () => {
             if(state.ambientSound.isPlaying) toggleAmbientSound(); // Stop old sound first
             toggleAmbientSound(); // Play new sound
