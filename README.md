@@ -1,140 +1,91 @@
 # Pomodoro Focus Timer
 
-A feature-rich Progressive Web App for productivity management using the Pomodoro Technique.
+A Progressive Web App for productivity management using the Pomodoro Technique.
 
 ![Pomodoro Focus Timer](images/screenshots/screenshot1.png)
 
 ## What is the Pomodoro Technique?
 
-The Pomodoro Technique breaks work into focused 25-minute intervals separated by short breaks. This helps you stay focused, prevent burnout, and track productivity.
+The Pomodoro Technique breaks work into focused 25-minute intervals separated by short breaks to help you stay focused, prevent burnout, and track productivity.
 
 ## Features
 
 - Complete Pomodoro Timer with focus sessions, short breaks, and long breaks
-- Task management: add, track, and complete your tasks
-- Productivity stats with 7-day progress tracking
-- Multiple themes: Default, Forest, Ocean, and Matrix
-- Sound options: notification sounds and ambient backgrounds
+- Task management with Pomodoro counts
+- 7-day productivity statistics and daily goals
+- Multiple themes: Default, Forest, Ocean, Matrix
+- Sound options: notification alerts and ambient backgrounds
 - Keyboard shortcuts: Space (start/pause), Alt+S (skip), Alt+R (reset)
 - Progressive Web App: install as native app, works offline
-- Ambient sounds: rain and coffee shop background audio
+- Local data persistence
 
 ## Quick Start
 
 1. Open `index.html` in your browser
-2. Add tasks you want to work on
-3. Click Start and focus for 25 minutes
-4. Take breaks between sessions
+2. Add your tasks and click Start
+3. Focus for 25 minutes, then take a break
 
 ## Installation
 
 ### Run Locally
-1. Clone or download this repository
-2. Open `index.html` in your browser
-3. No build process required
+Clone the repository and open `index.html` in your browser. No build process required.
 
 ### Install as PWA
-1. Open the app in Chrome, Edge, Safari, or Firefox
-2. Look for the install prompt in the address bar
-3. Click "Install" to add to your device
+Open the app in a modern browser, look for the install prompt, and click "Install".
 
-### Development Setup
+### Development
 ```bash
-# Clone the repository
 git clone https://github.com/samuelrooke/focuslink-solo.git
 cd focuslink-solo
-
-# Run with a local server (optional, recommended for PWA testing)
-python -m http.server 8000
-# Then visit http://localhost:8000
+python -m http.server 8000  # Optional: run local server
 ```
-
-## Usage
-
-1. Add tasks you want to work on
-2. Customize timer lengths and sounds in settings
-3. Select a theme that helps you focus
-4. Start your first Pomodoro session
-5. Take breaks when the timer completes
-6. Track your daily progress
 
 ## Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
-| Space | Start/Pause timer |
-| Alt+S | Skip to next session |
+| Space | Start/Pause |
+| Alt+S | Skip session |
 | Alt+R | Reset timer |
-
-## Themes
-
-- **Default**: Clean blue theme
-- **Forest**: Green nature theme
-- **Ocean**: Blue water theme
-- **Matrix**: Dark green tech theme
-
-## Sounds
-
-**Notification Sounds**: Ding, Bell, or Silent  
-**Ambient Backgrounds**: Rain, Coffee Shop, or None
 
 ## Project Structure
 
 ```
 focuslink-solo/
-├── index.html          # Main HTML file
-├── styles.css          # All styling and themes
-├── script.js           # Application logic
-├── manifest.json       # PWA manifest
-├── sw.js              # Service worker for offline support
-├── images/            # Icons and screenshots
-└── sounds/            # Audio files
+├── index.html       # Main app
+├── styles.css       # Styling
+├── script.js        # Logic
+├── manifest.json    # PWA manifest
+├── sw.js           # Service worker
+├── images/         # Icons, screenshots
+└── sounds/         # Audio files
 ```
 
 ## Technical Details
 
-- Pure HTML/CSS/JavaScript with no frameworks or dependencies
-- Progressive Web App with service worker
-- Offline capable after first load
-- Responsive design for desktop, tablet, and mobile
-- Local storage for data persistence
+Pure HTML/CSS/JavaScript with no dependencies. Progressive Web App with offline support via service worker. Responsive design with local storage for data persistence.
 
 ## Browser Support
 
-Works on modern browsers supporting HTML5, ES6, CSS Grid/Flexbox, and Service Workers:
-- Chrome/Chromium 90+
-- Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers (iOS Safari, Chrome Mobile)
+Chrome/Edge 90+, Firefox 88+, Safari 14+, and mobile browsers.
 
 ## Deployment
 
-**GitHub Pages**: Enable in repository settings, select main branch  
-**Netlify/Vercel**: Connect repository, no build command needed  
-**Self-hosting**: Upload all files to any web server
+**GitHub Pages**: Enable in settings, select main branch  
+**Netlify/Vercel**: Connect repository, no build needed  
+**Self-hosting**: Upload files to any web server
 
 ## Troubleshooting
 
-**PWA won't install**: Ensure HTTPS (or localhost), check browser support, clear cache  
-**Timer not working**: Enable JavaScript, check console for errors  
-**Data lost**: Don't use private/incognito mode, check localStorage settings  
-**Sounds not playing**: Check autoplay settings, verify sound files exist
+**PWA won't install**: Use HTTPS or localhost, check browser support  
+**Timer issues**: Enable JavaScript, check console for errors  
+**Data lost**: Avoid private mode, check localStorage settings  
+**No sound**: Check autoplay permissions and volume settings
 
 ## Contributing
 
-Contributions welcome! To contribute:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes and test in multiple browsers
-4. Submit a pull request
-
-Please report bugs with clear reproduction steps and include browser version.
+Fork the repository, create a feature branch, test your changes, and submit a pull request. Report bugs with reproduction steps and browser version.
 
 ## License
 
-This project is open source and available under the MIT License.
-
----
-
-Built for productivity using the proven Pomodoro Technique.
+MIT License
