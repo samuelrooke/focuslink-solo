@@ -1,95 +1,91 @@
-# 🍅 Pomodoro Focus Timer
+# Pomodoro Focus Timer
 
-A beautiful, feature-rich Progressive Web App (PWA) for productivity management using the Pomodoro Technique.
+A Progressive Web App for productivity management using the Pomodoro Technique.
 
-## ✨ Features
+![Pomodoro Focus Timer](images/screenshots/screenshot1.png)
 
-- 🎯 **Complete Pomodoro Timer**: Focus sessions, short breaks, and long breaks
-- 📝 **Task Management**: Add, track, and manage your tasks
-- 📊 **Productivity Stats**: 7-day progress tracking and daily goals
-- 🎨 **Multiple Themes**: Default, Forest, Ocean, and Matrix themes
-- 🔊 **Sound Options**: Notification sounds and ambient backgrounds
-- ⌨️ **Keyboard Shortcuts**: Space (start/pause), Alt+S (skip), Alt+R (reset)
-- 📱 **PWA Ready**: Install as native app, works offline
-- 🎵 **Ambient Sounds**: Rain and coffee shop background audio
+## What is the Pomodoro Technique?
 
-## 🚀 Quick Start
+The Pomodoro Technique breaks work into focused 25-minute intervals separated by short breaks to help you stay focused, prevent burnout, and track productivity.
 
-1. **Open the app**: Simply open `index.html` in your browser
-2. **Install as PWA**: Look for the install button in your browser's address bar
-3. **Start focusing**: Set your tasks, choose a theme, and start your first Pomodoro!
+## Features
 
-## 🛠️ Technical Details
+- Complete Pomodoro Timer with focus sessions, short breaks, and long breaks
+- Task management with Pomodoro counts
+- 7-day productivity statistics and daily goals
+- Multiple themes: Default, Forest, Ocean, Matrix
+- Sound options: notification alerts and ambient backgrounds
+- Keyboard shortcuts: Space (start/pause), Alt+S (skip), Alt+R (reset)
+- Progressive Web App: install as native app, works offline
+- Local data persistence
 
-- **Pure HTML/CSS/JavaScript**: No frameworks or dependencies
-- **Progressive Web App**: Complete with manifest.json and service worker
-- **Offline Capable**: Works without internet after first load
-- **Responsive Design**: Perfect on desktop, tablet, and mobile
-- **Local Storage**: Your data persists between sessions
+## Quick Start
 
-## 📱 Installation
+1. Open `index.html` in your browser
+2. Add your tasks and click Start
+3. Focus for 25 minutes, then take a break
 
-### As a Web App:
-1. Open `index.html` in any modern browser
-2. Look for the install prompt in the address bar
-3. Click "Install" to add to your home screen/desktop
+## Installation
 
-### For Development:
-1. Clone or download this repository
-2. Open `index.html` in a web browser
-3. Start using immediately - no build process required!
+### Run Locally
+Clone the repository and open `index.html` in your browser. No build process required.
 
-## 🎯 How to Use
+### Install as PWA
+Open the app in a modern browser, look for the install prompt, and click "Install".
 
-1. **Set Your Tasks**: Add tasks you want to work on
-2. **Choose Settings**: Customize timer lengths and sounds
-3. **Select Theme**: Pick a theme that helps you focus
-4. **Start Timer**: Click start and focus for 25 minutes
-5. **Take Breaks**: Enjoy your well-deserved breaks
-6. **Track Progress**: Watch your daily stats grow!
+### Development
+```bash
+git clone https://github.com/samuelrooke/focuslink-solo.git
+cd focuslink-solo
+python -m http.server 8000  # Optional: run local server
+```
 
-## 🎨 Themes
+## Keyboard Shortcuts
 
-- **Default**: Clean blue theme for professional environments
-- **Forest**: Green nature theme for calm focus
-- **Ocean**: Blue water theme for peaceful concentration  
-- **Matrix**: Dark green tech theme for night owls
+| Shortcut | Action |
+|----------|--------|
+| Space | Start/Pause |
+| Alt+S | Skip session |
+| Alt+R | Reset timer |
 
-## 🔊 Sounds
+## Project Structure
 
-- **Notification Sounds**: Ding, Bell, or Silent
-- **Ambient Backgrounds**: Rain, Coffee Shop, or None
+```
+focuslink-solo/
+├── index.html       # Main app
+├── styles.css       # Styling
+├── script.js        # Logic
+├── manifest.json    # PWA manifest
+├── sw.js           # Service worker
+├── images/         # Icons, screenshots
+└── sounds/         # Audio files
+```
 
-## 🏆 Features Overview
+## Technical Details
 
-- ✅ Customizable timer lengths
-- ✅ Task tracking with Pomodoro counts
-- ✅ Daily goal setting and progress
-- ✅ 7-day productivity statistics
-- ✅ Multiple color themes
-- ✅ Sound notifications and ambient audio
-- ✅ Keyboard shortcuts
-- ✅ Progressive Web App capabilities
-- ✅ Offline functionality
-- ✅ Responsive design
-- ✅ Local data persistence
+Pure HTML/CSS/JavaScript with no dependencies. Progressive Web App with offline support via service worker. Responsive design with local storage for data persistence.
 
-## 🔧 Browser Support
+## Browser Support
 
-Works on all modern browsers that support:
-- HTML5 Canvas
-- ES6 JavaScript
-- CSS Grid/Flexbox
-- Service Workers (for PWA features)
+Chrome/Edge 90+, Firefox 88+, Safari 14+, and mobile browsers.
 
-## 📄 License
+## Deployment
 
-This project is open source and available under the MIT License.
+**GitHub Pages**: Enable in settings, select main branch  
+**Netlify/Vercel**: Connect repository, no build needed  
+**Self-hosting**: Upload files to any web server
 
-## 🙏 Credits
+## Troubleshooting
 
-Created with focus on simplicity, productivity, and beautiful design.
+**PWA won't install**: Use HTTPS or localhost, check browser support  
+**Timer issues**: Enable JavaScript, check console for errors  
+**Data lost**: Avoid private mode, check localStorage settings  
+**No sound**: Check autoplay permissions and volume settings
 
----
+## Contributing
 
-**Ready to boost your productivity? Start your first Pomodoro session now! 🍅**
+Fork the repository, create a feature branch, test your changes, and submit a pull request. Report bugs with reproduction steps and browser version.
+
+## License
+
+MIT License
