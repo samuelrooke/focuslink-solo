@@ -25,8 +25,8 @@ The Pomodoro Technique is a time management method that uses a timer to break wo
 
 ## 🚀 Quick Start
 
-### Option 1: Use Online (Recommended)
-Simply visit the hosted version [if available] and start using immediately.
+### Option 1: Use Online
+If you have this app hosted online, simply visit the URL and start using immediately.
 
 ### Option 2: Run Locally
 1. **Clone or download** this repository
