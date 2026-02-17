@@ -2,7 +2,7 @@
 
 A Progressive Web App for productivity management using the Pomodoro Technique.
 
-![Pomodoro Focus Timer](images/screenshots/screenshot1.png)
+![Pomodoro Focus Timer](images/screenshots/Screenshot 2026-02-17 223246.png)
 
 ## What is the Pomodoro Technique?
 
